@@ -10,7 +10,14 @@ def path_to_file_list(path: str) -> List[str]:
 
 def train_file_list_to_json(english_file_list: List[str], german_file_list: List[str]) -> List[str]:
     """Converts two lists of file paths into a list of json strings"""
-    pass
+
+    json_list = []
+
+    for english, german in zip(english_file_list, german_file_list):
+        json_str = f'{{"English":"{english}","German":"{german}"}}'
+        json_list.append(json_str)
+
+    return json_list
 
 def write_file_list(file_list: List[str], path: str) -> None:
     """Writes a list of strings to a file, each string on a new line"""
